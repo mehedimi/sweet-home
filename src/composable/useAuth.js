@@ -40,5 +40,5 @@ export const user = function () {
 };
 
 export const me = async function () {
-  return Api.get("/wp/v2/users/me");
+  return Api.get(`${import.meta.env.VITE_API_BASE_URL}/wp/v2/users/me`);
 };
