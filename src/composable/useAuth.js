@@ -6,10 +6,13 @@ export const userKey = "auth:user";
 
 export const useLogin = async function (username, password) {
   try {
-    const response = await Api.post(`${import.meta.env.VITE_API_BASE_URL}/jwt-auth/v1/token`, {
-      username,
-      password,
-    });
+    const response = await Api.post(
+      `${import.meta.env.VITE_API_BASE_URL}/jwt-auth/v1/token`,
+      {
+        username,
+        password,
+      }
+    );
 
     set(tokenKey, response.data.token, "text");
     const { data } = await me();

@@ -1,6 +1,9 @@
 <script setup>
 import { useLogin } from "@/composable/useAuth";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const username = ref("");
 const password = ref("");
@@ -14,6 +17,9 @@ async function login() {
 
   if (isSuccess) {
     message.value = false;
+    router.push({
+      name: "product.index",
+    });
   } else {
     message.value = payload;
   }
